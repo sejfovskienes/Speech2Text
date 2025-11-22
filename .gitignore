@@ -1,2 +1,7 @@
+# onnx models(with conf folder)
 backend/app/core/onnx_s2t/decoder_model.onnx
 backend/app/core/onnx_s2t/encoder_model.onnx
+
+# onnx format encoder 
+backend/app/core/onnx_models/s2t_encoder.onnx
+backend/app/core/onnx_models/s2t_encoder.onnx.data

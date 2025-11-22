@@ -1,9 +1,12 @@
+import os
 import art # type: ignore
 import numpy as np
+from pathlib import Path
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.services import audio_service
+from app.core.transcribe_model import SpeechToTextModel
 
 app = FastAPI(title="SpeechToText API")
 
@@ -14,6 +17,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+model = SpeechToTextModel()
 
 @app.on_event("startup")
 async def app_startup_logic():
@@ -28,5 +33,5 @@ async def transcribe_audio(file: UploadFile = File(...)):
     file_bytes = await file.read()
     audio = audio_service.load_and_process_audio(file_bytes)
     audio_input = np.expand_dims(audio, axis=0)
-    outputs = audio_service.run_speech2text_model(audio_input)
+    outputs = model.infer(audio_input)
     return {"status": "successfull", "raw_output": outputs}
