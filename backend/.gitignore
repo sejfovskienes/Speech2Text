@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+.venv310
+
+# onnx models 
+backend/app/core/onnx_s2t

@@ -69,17 +69,17 @@ export default function VoiceRecorder() {
     setIsProcessing(true);
     
     // Simulate backend call - Replace this with your actual API endpoint
-    setTimeout(() => {
-      setTranscribedText("This is a sample transcription. Replace the sendToBackend function with your actual API call to convert speech to text. The audio data is available in the audioBlob variable as a Blob object.");
-      setIsProcessing(false);
-    }, 2000);
+    // setTimeout(() => {
+    //   setTranscribedText("This is a sample transcription. Replace the sendToBackend function with your actual API call to convert speech to text. The audio data is available in the audioBlob variable as a Blob object.");
+    //   setIsProcessing(false);
+    // }, 2000);
     
-    /* Uncomment and modify this for your actual backend:
+   
     const formData = new FormData();
-    formData.append('audio', audioBlob, 'recording.webm');
+    formData.append('file', audioBlob, 'recording.wav');
     
     try {
-      const response = await fetch('YOUR_BACKEND_URL/transcribe', {
+      const response = await fetch('http://localhost:8000/transcribe', {
         method: 'POST',
         body: formData
       });
@@ -91,7 +91,6 @@ export default function VoiceRecorder() {
     } finally {
       setIsProcessing(false);
     }
-    */
   };
 
   const formatTime = (seconds) => {
@@ -193,7 +192,7 @@ export default function VoiceRecorder() {
 
         {/* Footer Note */}
         <div className="text-center mt-8 text-gray-400 text-xs font-medium">
-          <p>Made by <a href='https://linkedin.com/in/enes-sejfovski-866607272'>Enes Sejfovski</a></p>
+          <p>Made by <a href='https://linkedin.com/in/enes-sejfovski-866607272'>Enes Sejfovski</a>. All rights reserved. @Skopje, 2025</p>
         </div>
       </div>
     </div>
