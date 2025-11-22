@@ -1,0 +1,2 @@
+backend/app/core/onnx_s2t/decoder_model.onnx
+backend/app/core/onnx_s2t/encoder_model.onnx
